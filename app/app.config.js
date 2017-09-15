@@ -2,8 +2,8 @@
 
 // Declare app level module which depends on views, and components
 angular
-    .module('myApp', [])
-    .config(['$locationProvider', '$routeProvider', '$httpProvider',
+    .module('myApp')
+    .config(['$locationProvider', '$routeProvider',
         function config($locationProvider, $routeProvider, $httpProvider) {
             $locationProvider.hashPrefix('!');
 
@@ -11,9 +11,10 @@ angular
                 .when('/login', {
                     template: '<login></login>'
                 })
+                .when('/guess', {
+                    template: '<guess></guess>'
+                })
                 .otherwise('/login');
 
-            //todo 为啥不好使？
-            // $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
         }
     ]);

@@ -2,7 +2,7 @@
 
 angular
     .module('api')
-    .factory('remote', [
+    .factory('httpService', [
         '$http', function ($http) {
 
             function login(email) {

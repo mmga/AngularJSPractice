@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('login', [
+angular.module('guess', [
     'ngRoute',
     'api',
     'localStorage']);

@@ -4,20 +4,21 @@ angular
     .module('login')
     .component('login', {
         templateUrl: 'login/login.template.html',
-        controller: ['remote', 'localStorage', '$scope', function (remote, localStorage, $scope) {
-            let self = this;
+        controller: ['httpService', 'localStorage', '$scope', '$location',
+            function (httpService, localStorage, $scope, $location) {
+                let self = this;
 
-            self.doLogin = function doLogin() {
-                remote.login($scope.email)
-                    .then(function (response) {
-                            localStorage.setItem('token', response.data.token)
+                self.doLogin = function doLogin() {
+                    httpService.login($scope.email)
+                        .then(function (response) {
+                                localStorage.setItem('token', response.data.token)
+                                $location.path('/guess');
+                            },
+                            function (reject) {
+                                let {status, data: {error}} = reject
+                                alert([status, error])
+                            });
+                };
 
-                        },
-                        function (reject) {
-                            let {status, data: {error}} = reject
-                            alert([status, error])
-                        });
-            };
-
-        }]
+            }]
     });

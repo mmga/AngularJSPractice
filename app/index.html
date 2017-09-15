@@ -16,19 +16,22 @@
     -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="app.config.js"></script>
     <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
     <script src="services/api/api.module.js"></script>
     <script src="services/api/api.service.js"></script>
     <script src="services/storage/storage.module.js"></script>
     <script src="services/storage/storage.service.js"></script>
     <script src="login/login.module.js"></script>
     <script src="login/login.component.js"></script>
+    <script src="guess/guess.module.js"></script>
+    <script src="guess/guess.component.js"></script>
 </head>
 <body>
 <div class="view-container">
-    <!--<div ng-view class="view-frame"></div>-->
-    <login></login>
+    <div ng-view></div>
+    <!--<login></login>-->
+    <!--<guess></guess>-->
 </div>
 </body>
 </html>
