@@ -3,9 +3,7 @@
 angular
     .module('api')
     .factory('httpService', [
-        '$http', 'localStorage', function ($http, localStorage) {
-
-            let token = localStorage.getItem('token');
+        '$http', 'localStorage', 'globalParams', function ($http, localStorage, globalParams) {
 
             function login(email) {
                 return $http({
@@ -19,20 +17,39 @@ angular
             }
 
             function start() {
+                let token = localStorage.getItem('token');
                 return $http({
                     method: 'POST',
                     url: 'http://job.cloudist.cc:8888/start',
                     headers: {
                         'Content-Type': 'application/json',
-                        'token':token
+                        'token': token
                     },
-                    data:{}
+                    data: {}
+                });
+            }
+
+            function guess(char) {
+                let token = localStorage.getItem('token');
+                let session = globalParams.session;
+                return $http({
+                    method: 'POST',
+                    url: 'http://job.cloudist.cc:8888/guess',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'token': token,
+                    },
+                    data: {
+                        'sessionId': session,
+                        'char': char
+                    }
                 });
             }
 
             return {
                 login,
                 start,
+                guess,
             }
         }
     ]);

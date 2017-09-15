@@ -19,4 +19,4 @@ angular
                 .otherwise('/login');
 
         }
-    ]);
+    ]).value('globalParams', {'session': ""});
