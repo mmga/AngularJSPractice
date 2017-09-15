@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('login', ['api']);
+angular.module('login', ['api', 'localStorage']);

@@ -1,0 +1,16 @@
+{
+  "presets": [
+    [
+      "es2015",
+      {
+        "modules": false
+      }
+    ],
+    "es2017",
+    "flow"
+  ]
+//  "plugins": [
+//    "syntax-dynamic-import",
+//    "transform-object-rest-spread"
+//  ]
+}
