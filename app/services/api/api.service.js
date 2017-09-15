@@ -3,7 +3,9 @@
 angular
     .module('api')
     .factory('httpService', [
-        '$http', function ($http) {
+        '$http', 'localStorage', function ($http, localStorage) {
+
+            let token = localStorage.getItem('token');
 
             function login(email) {
                 return $http({
@@ -16,8 +18,21 @@ angular
                 });
             }
 
+            function start() {
+                return $http({
+                    method: 'POST',
+                    url: 'http://job.cloudist.cc:8888/start',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'token':token
+                    },
+                    data:{}
+                });
+            }
+
             return {
-                login
+                login,
+                start,
             }
         }
     ]);

@@ -4,8 +4,10 @@
 angular
     .module('myApp')
     .config(['$locationProvider', '$routeProvider',
-        function config($locationProvider, $routeProvider, $httpProvider) {
+        function config($locationProvider, $routeProvider) {
             $locationProvider.hashPrefix('!');
+
+            // let token = localStorage.getItem('token');
 
             $routeProvider
                 .when('/login', {
