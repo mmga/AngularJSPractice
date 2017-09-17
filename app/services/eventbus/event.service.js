@@ -4,8 +4,8 @@ angular.module('eventBus')
     .factory('eventBus', ['$rootScope', function ($rootScope) {
 
         const eventType = {
-            EVENT_GUESS_RESULT:'event_guess_result',
-            EVENT_GUESS_RECORD:'event_guess_record'
+            GUESS_RESULT:'guess_result',
+            GUESS_RECORD:'guess_record'
         };
 
         function post(event, data) {

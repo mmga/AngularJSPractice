@@ -8,6 +8,7 @@ angular.module('guess')
 
             self.doGuess = function doGuess() {
                 guessService.guessWord(self.inputChar);
+                self.inputChar = ''
             };
         }]
     });

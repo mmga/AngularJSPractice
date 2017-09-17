@@ -16,6 +16,8 @@ angular
                                 let {data: {word, sessionId}} = response;
                                 console.log(word, sessionId);
                                 globalParams.session = sessionId;
+                                eventBus.post(eventBus.eventType.GUESS_RESULT, word);
+                                currentWord = word;
                                 records = [];
                             },
                             function (reject) {
@@ -29,18 +31,14 @@ angular
                         .then(function (response) {
                                 console.log('response', response);
                                 if (response.status === 200) {
-                                    let {config: {data: {char}}, data: {word}} = response
-                                    records.push([{char, word}]);
-                                    console.log('records = ', records);
-                                    console.log(word);
-                                    if (currentWord === '') {
-                                        currentWord = word;
-                                    } else {
-                                        currentWord = calResult(currentWord, word)
-                                    }
-                                    console.log('currentWord', currentWord);
-                                    eventBus.post(eventBus.eventType.EVENT_GUESS_RESULT, currentWord);
+                                    let {config: {data: {char}}, data: {word}} = response;
 
+                                    currentWord = calResult(currentWord, word);
+                                    console.log('currentWord', currentWord);
+                                    eventBus.post(eventBus.eventType.GUESS_RESULT, currentWord);
+
+                                    records.push({char, word, currentWord});
+                                    eventBus.post(eventBus.eventType.GUESS_RECORD, records);
                                 }
                             },
                             function (reject) {
