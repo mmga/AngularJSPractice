@@ -55,9 +55,21 @@ angular
                     return result;
                 }
 
+                function validateResult() {
+                    httpService.result(currentWord)
+                        .then(function (response) {
+                                console.log(response);
+                                alert(response.data);
+                            },
+                            function (reject) {
+                                console.log(reject);
+                            })
+                }
+
                 return {
                     records,
                     startGame,
                     guessWord,
+                    validateResult,
                 }
             }]);

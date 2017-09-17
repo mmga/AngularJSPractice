@@ -46,10 +46,28 @@ angular
                 });
             }
 
+            function result(word) {
+                let token = localStorage.getItem('token');
+                let session = globalParams.session;
+                return $http({
+                    method: 'POST',
+                    url: 'http://job.cloudist.cc:8888/result',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'token': token,
+                    },
+                    data: {
+                        'sessionId': session,
+                        'word': word
+                    }
+                });
+            }
+
             return {
                 login,
                 start,
                 guess,
+                result,
             }
         }
     ]);
