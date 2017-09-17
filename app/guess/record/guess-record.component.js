@@ -3,7 +3,7 @@
 angular.module('guess')
     .component('guessRecordList', {
         templateUrl: 'guess/record/guess-record.template.html',
-        controller: ['$scope', 'guess.service', 'eventBus', function ($scope, guessService, eventBus) {
+        controller: ['$scope', 'guessService', 'eventBus', function ($scope, guessService, eventBus) {
             let self = this;
 
             eventBus.subscribe(eventBus.eventType.GUESS_RECORD, function (event, data) {

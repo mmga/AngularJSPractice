@@ -2,7 +2,7 @@
 
 angular
     .module('guess.service')
-    .factory('guess.service',
+    .factory('guessService',
         ['httpService', 'globalParams', 'eventBus',
             function (httpService, globalParams, eventBus) {
 

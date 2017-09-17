@@ -3,7 +3,7 @@
 angular.module('guess')
     .component('guessButton', {
         templateUrl: 'guess/button/guess-button.template.html',
-        controller: ['guess.service', function (guessService) {
+        controller: ['guessService', function (guessService) {
             let self = this;
 
             self.textBtnStart = '开始游戏';
