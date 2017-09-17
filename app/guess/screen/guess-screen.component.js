@@ -9,9 +9,11 @@ angular.module('guess')
 
             eventBus.subscribe(eventBus.eventType.GUESS_RESULT,
                 function (event, data) {
-                    console.log(data);
                     self.currentWord = data;
                 })
 
+            eventBus.subscribe(eventBus.eventType.GUESS_RESET, function () {
+                // self.currentWord = '';
+            });
         }]
     });

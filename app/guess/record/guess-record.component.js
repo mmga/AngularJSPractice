@@ -13,8 +13,11 @@ angular.module('guess')
                     recordItem = {guessChar: data[i].char, word: data[i].word, resultWord: data[i].currentWord};
                     tempRecords.push(recordItem);
                 }
-                console.log(tempRecords);
                 self.records = tempRecords;
             });
+
+            eventBus.subscribe(eventBus.eventType.GUESS_RESET, function () {
+                self.records = [];
+            })
         }]
     });

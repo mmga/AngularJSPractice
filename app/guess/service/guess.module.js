@@ -1,3 +1,7 @@
 'use strict';
 
-angular.module('guess.service', ['api', 'localStorage','eventBus']);
+angular.module('guess.service', [
+    'api',
+    'localStorage',
+    'eventBus',
+]);

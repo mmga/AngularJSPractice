@@ -5,7 +5,8 @@ angular.module('eventBus')
 
         const eventType = {
             GUESS_RESULT:'guess_result',
-            GUESS_RECORD:'guess_record'
+            GUESS_RECORD:'guess_record',
+            GUESS_RESET:'guess_reset'
         };
 
         function post(event, data) {
