@@ -8,6 +8,7 @@ angular
 
                 let records = [];
                 let currentWord = '';
+                const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
                 let guessedChar = []; // 记录已猜过的词
                 let isAutoPlay = false;
 
@@ -80,9 +81,6 @@ angular
                                 console.log(reject);
                             })
                 }
-
-
-                const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
                 function autoPlayStart() {
                     isAutoPlay = true;
