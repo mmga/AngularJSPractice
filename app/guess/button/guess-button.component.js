@@ -3,7 +3,7 @@
 angular.module('guess')
     .component('guessButton', {
         templateUrl: 'guess/button/guess-button.template.html',
-        controller: ['guessService', function (guessService) {
+        controller: ['guessService', 'eventBus', function (guessService, eventBus) {
             let self = this;
 
             self.textBtnStart = '开始游戏';
@@ -26,6 +26,10 @@ angular.module('guess')
                     pauseAutoPlay();
                 }
             };
+
+            eventBus.subscribe(eventBus.eventType.GUESS_FINISH, function () {
+                pauseAutoPlay();
+            });
 
             function pauseAutoPlay() {
                 guessService.autoPlayPause();

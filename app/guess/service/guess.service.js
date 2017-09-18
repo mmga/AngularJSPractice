@@ -45,6 +45,10 @@ angular
                                     // guess
                                     currentWord = calResult(currentWord, word);
                                     eventBus.post(eventBus.eventType.GUESS_RESULT, currentWord);
+                                    if (currentWord.indexOf('*') === -1) {
+                                        eventBus.post(eventBus.eventType.GUESS_FINISH);
+                                        isAutoPlay = false;
+                                    }
 
                                     // record
                                     records.push({char, word, currentWord});
@@ -52,7 +56,7 @@ angular
 
                                     //autoplay
                                     guessedChar.push(char);
-                                    if (isAutoPlay && currentWord.indexOf('*') !== -1) {
+                                    if (isAutoPlay) {
                                         setTimeout(function () {
                                             autoPlay();
                                         }, 200)
